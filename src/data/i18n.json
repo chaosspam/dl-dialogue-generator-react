@@ -1,5 +1,6 @@
 {
   "en": {
+    "code" : "en_us",
     "bcp47" : "en",
     "textProperties": {
       "bookYPos": 450,
@@ -108,6 +109,7 @@
     }
   },
   "zh_tw": {
+    "code" : "zh_tw",
     "bcp47" : "zh-Hant-TW",
     "textProperties": {
       "bookYPos": 450,
@@ -216,6 +218,7 @@
     }
   },
   "zh_cn": {
+    "code" : "zh_cn",
     "bcp47" : "zh-Hans-CN",
     "textProperties": {
       "bookYPos": 450,
@@ -324,6 +327,7 @@
     }
   },
   "ja": {
+    "code" : "jp",
     "bcp47" : "ja-JP",
     "textProperties": {
       "bookYPos": 450,

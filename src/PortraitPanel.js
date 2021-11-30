@@ -5,7 +5,6 @@ import { fetchJson, loadImage } from './Helper.js';
 
 // Portrait drawing data
 const PORTRAIT_URL = "https://dlportraits.space/";
-let pageLang = document.documentElement.lang;
 let portraitCanvas;
 
 class PortraitPanel extends React.Component {
@@ -32,7 +31,7 @@ class PortraitPanel extends React.Component {
   }
 
   render() {
-    const { loc } = this.props
+    const { loc, pageLang } = this.props
 
     const options = Object.keys(this.state.fileList).map(key => {
       return <option key={key} value={this.state.fileList[key][i18n[pageLang].code]} data-id={key} />

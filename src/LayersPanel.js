@@ -106,6 +106,7 @@ function LayersPanel(props) {
           activeLayer={activeTabId}
           updateLayer={updateLayer}
           loc={i18n[pageLang].loc.portrait}
+          pageLang={pageLang}
         />
         <BackgroundPanel
           active={backgroundPanelActive}
