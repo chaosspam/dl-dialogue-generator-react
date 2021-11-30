@@ -1,6 +1,7 @@
-# Getting Started with Create React App
+# dl-dialogue-generator-react
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+A rewrite of [DLDialogueScreenGenerator](https://github.com/chaosspam/DLDialogueScreenGenerator) using React
+Bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
 
