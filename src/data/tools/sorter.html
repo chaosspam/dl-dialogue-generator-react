@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body style="background-color: hotpink;">
+  <img id="image" style="width: 200px; height: 200px;">
+  <select id="bgType">
+    <option value="background">Background</option>
+    <option value="skybox">Skybox</option>
+    <option value="cloud">Cloud</option>
+    <option value="overlay">Overlay</option>
+  </select>
+  <button id="next">Next</button>
+  <script>
+    (function(){
+      let data;
+      let result = [];
+      let current;
+
+      window.addEventListener("load", init);
+
+      async function init() {
+        await loadData();
+      }
+
+      async function loadData() {
+        let response = await fetch("background_data.json");
+        data = await response.json();
+        document.getElementById("next").addEventListener("click", sort);
+        sort();
+      }
+
+      function sort() {
+        if(current) {
+          current.type = document.getElementById("bgType").value;
+          result.push(current);
+        }
+
+        if(data.length > 0) {
+          current = data.pop();
+          document.getElementById("image").src = current.url;
+        }
+        else {
+          console.log(result);
+        }
+      }
+    })();
+  </script>
+</body>
+</html>
