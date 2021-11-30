@@ -18,10 +18,10 @@ const usePrevious = (value) => {
 
 function LayersPanel(props) {
   const { layers, drawDialogueScreen, addLayer, removeLayer, updateLayer, reorderLayer, pageLang } = props;
-  const [ activeTabId, setActiveTab ] = useState(2);
-  const [ portraitPanelActive, setPortraitPanelActive ] = useState(false);
-  const [ backgroundPanelActive, setBackgroundPanelActive ] = useState(false);
-  const [ deletePanelActive, setDeletePanelActive ] = useState(false);
+  const [activeTabId, setActiveTab] = useState(2);
+  const [portraitPanelActive, setPortraitPanelActive] = useState(false);
+  const [backgroundPanelActive, setBackgroundPanelActive] = useState(false);
+  const [deletePanelActive, setDeletePanelActive] = useState(false);
   const loc = i18n[pageLang].loc.layers
 
   const prevLayers = usePrevious(layers);
@@ -30,7 +30,7 @@ function LayersPanel(props) {
     if (layers && layers.length > 0 && prevLayers && prevLayers.length !== layers.length) {
       setActiveTab(layers[layers.length - 1].id);
     }
-  // eslint-disable-next-line react-hooks/exhaustive-deps
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [layers]);
 
   const togglePortraitPanel = () => {
@@ -124,7 +124,7 @@ function LayersPanel(props) {
   );
 }
 
-function LayerTab (props) {
+function LayerTab(props) {
   const { activeTab, layer, onClick } = props;
 
   const { active, attributes, listeners, setNodeRef, transform, transition } = useSortable({

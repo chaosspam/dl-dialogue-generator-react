@@ -20,8 +20,7 @@ class App extends React.Component {
 
     let savedLang = localStorage.getItem('pageLanguage');
     // If no saved language or language is not found, default to English
-    if(!savedLang || !i18n[savedLang])
-    {
+    if (!savedLang || !i18n[savedLang]) {
       savedLang = 'en';
     }
     document.documentElement.lang = i18n[savedLang].bcp47;
@@ -81,7 +80,7 @@ class App extends React.Component {
           />
         </section>
         <canvas id='editor' width='750' height='1334' className='hidden'></canvas>
-        <Footer pageLang={this.state.pageLang} setLanguage={this.setLanguage}/>
+        <Footer pageLang={this.state.pageLang} setLanguage={this.setLanguage} />
         <a href='#top' id='toTop'>To Top</a>
       </div>
     );
@@ -91,7 +90,7 @@ class App extends React.Component {
     localStorage.setItem('pageLanguage', language);
     document.documentElement.lang = i18n[language].bcp47;
     document.title = i18n[language].loc.title;
-    this.setState({pageLang: language});
+    this.setState({ pageLang: language });
   }
 
   async initialDraw() {
@@ -104,7 +103,7 @@ class App extends React.Component {
 
       // Draw dialogue screen
       await this.drawDialogueScreen();
-    } catch(e) {
+    } catch (e) {
       console.error(e);
     }
   }
@@ -113,7 +112,7 @@ class App extends React.Component {
    * Draws the dialogue screen based on inputs
    */
   async drawDialogueScreen() {
-    if(drawing) return;
+    if (drawing) return;
     drawing = true;
 
     // Get canvas context
@@ -124,7 +123,7 @@ class App extends React.Component {
 
     // Get draw type
     const dialogueType = this.state.settings.dialogueType;
-    const lang =  this.state.settings.font;
+    const lang = this.state.settings.font;
 
     // Clear the canvas
     ctx.clearRect(0, 0, canvas.width, canvas.height);
@@ -135,23 +134,23 @@ class App extends React.Component {
 
     let bar = textures.bar;
 
-    if(dialogueType === 'intro') {
+    if (dialogueType === 'intro') {
       bar = textures.introBar;
       ctx.drawImage(textures.introBack, 0, 0);
     }
-    if(dialogueType === 'caption' || dialogueType === 'narration') {
+    if (dialogueType === 'caption' || dialogueType === 'narration') {
       bar = textures.caption;
     }
-    if(dialogueType === 'full') {
+    if (dialogueType === 'full') {
       bar = textures.fullscreen;
     }
-    if(dialogueType === 'book') {
+    if (dialogueType === 'book') {
       ctx.drawImage(textures.book, 0, 0);
       bar = textures['skip_' + lang];
     }
 
     // Draw Layers
-    for(let i = 0; i < this.state.layers.length; i++) {
+    for (let i = 0; i < this.state.layers.length; i++) {
       let layer = this.state.layers[i];
       this.drawImageWithData(ctx, id(`img_${layer.id}`), canvas.width / 2, canvas.height / 2, layer, dialogueType === 'intro')
     }
@@ -160,7 +159,7 @@ class App extends React.Component {
 
     ctx.drawImage(bar, 0, 0);
     // If language is not English, we draw the skip button in other language
-    if(lang !== 'en') {
+    if (lang !== 'en') {
       ctx.drawImage(textures['skip_' + lang], 0, 0);
     }
 
@@ -173,8 +172,8 @@ class App extends React.Component {
   }
 
   async loadTextures() {
-    if(!textures.loaded) {
-      for(let key in images) {
+    if (!textures.loaded) {
+      for (let key in images) {
         textures[key] = await loadImage(images[key]);
       }
       textures.loaded = true;
@@ -209,15 +208,15 @@ class App extends React.Component {
     // Move the context to the pivot before rotating
     ctx.translate(centerX + offsetX, centerY + offsetY);
 
-    if(layer.flipX) {
+    if (layer.flipX) {
       ctx.scale(-1, 1);
     }
 
-    if(rotation !== 0) {
+    if (rotation !== 0) {
       ctx.rotate(rotation * Math.PI / 180);
     }
 
-    if(dropShadow) {
+    if (dropShadow) {
       ctx.shadowColor = 'rgba(0, 0, 0, .25)';
       ctx.shadowOffsetX = 20;
       ctx.shadowOffsetY = 20;
@@ -273,13 +272,13 @@ class App extends React.Component {
     ctx.font = `${textProp.nameSize}px dragalialost_${lang}`;
     ctx.fillStyle = 'white';
 
-    if(dialogueType === 'caption') {
+    if (dialogueType === 'caption') {
       ctx.font = `${textProp.titleSize}px dragalialost_${lang}`;
       ctx.fillText(speakerName, (ctx.canvas.width - ctx.measureText(speakerName).width) / 2, textProp.titleYPos);
       ctx.fillRect(0, 430, ctx.canvas.width, 1);
     } else if (dialogueType === 'intro') {
       this.drawSpeakerNameIntro(ctx, textProp, lang, speakerName);
-    } else if(dialogueType !== 'narration' && dialogueType !== 'full' && dialogueType !== 'book') {
+    } else if (dialogueType !== 'narration' && dialogueType !== 'full' && dialogueType !== 'book') {
       ctx.fillText(speakerName, textProp.speakerXPos, textProp.speakerYPos);
     }
 
@@ -294,25 +293,25 @@ class App extends React.Component {
 
     ctx.fillStyle = '#071726';
 
-    if(dialogueType === 'intro') {
+    if (dialogueType === 'intro') {
       this.drawTitleIntro(ctx, textProp, lang, dialogue);
       return;
     }
 
     let center = false;
 
-    if(dialogueType === 'caption') {
+    if (dialogueType === 'caption') {
       startY = textProp.captionYPos;
       ctx.fillStyle = 'white';
       fontSize = textProp.captionSize;
       center = true;
-    } else if(dialogueType === 'narration' || dialogueType === 'full') {
+    } else if (dialogueType === 'narration' || dialogueType === 'full') {
       fontSize = textProp.dialogueSize;
       lineHeight = textProp.narrationLineHeight;
       startY = textProp.narrationYPos - (fontSize + (lines.length - 1) * lineHeight) / 2;
       ctx.fillStyle = 'white';
       center = true;
-    } else if(dialogueType === 'book') {
+    } else if (dialogueType === 'book') {
       fontSize = textProp.dialogueSize;
       lineHeight = textProp.narrationLineHeight;
       startY = ctx.canvas.height / 2 - ((lines.length - 1) * lineHeight) / 2;
@@ -325,7 +324,7 @@ class App extends React.Component {
     // Draw line by line
     for (let i = 0; i < lines.length; i++) {
       let x = startX;
-      if(center) {
+      if (center) {
         let base = lines[i].replace(/\(([^)]+)\)\{([^}]+)\}/g, (match, base, furigana, offset, string) => base);
         x = (ctx.canvas.width - ctx.measureText(base).width) / 2;
       }
@@ -456,7 +455,7 @@ class App extends React.Component {
       'opacity': 1,
       'flipX': false
     }
-    this.setState((prevState) => { return { layers: [...prevState.layers, newLayer ] }; }, this.drawDialogueScreen);
+    this.setState((prevState) => { return { layers: [...prevState.layers, newLayer] }; }, this.drawDialogueScreen);
     return newLayer;
   }
 
@@ -464,7 +463,7 @@ class App extends React.Component {
    * Remove the layer that is set to be removed
    */
   removeLayer(id) {
-    if(this.state.layers.length <= 1) return;
+    if (this.state.layers.length <= 1) return;
     this.setState((prevState) => { return { layers: prevState.layers.filter(layer => layer.id !== id) }; }, this.drawDialogueScreen);
   }
 
@@ -472,13 +471,13 @@ class App extends React.Component {
    * Reorder the layers based on the document order
    */
   reorderLayer(result) {
-    if(result.over) {
+    if (result.over) {
       // Get the tabs
       this.setState((prevState) => {
         const layers = [...prevState.layers];
         const fromIndex = layers.findIndex(x => `tab_${x.id}` === result.active.id);
         const toIndex = layers.findIndex(x => `tab_${x.id}` === result.over.id);
-        if(fromIndex !== -1 && toIndex !== -1 && fromIndex !== toIndex) {
+        if (fromIndex !== -1 && toIndex !== -1 && fromIndex !== toIndex) {
           const tmp = layers[fromIndex];
           const dir = toIndex < fromIndex ? -1 : 1;
           for (let i = fromIndex; i !== toIndex; i += dir) {

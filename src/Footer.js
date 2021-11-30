@@ -6,20 +6,20 @@ function Footer(props) {
     <footer>
       {
         pageLang === 'en' ?
-        <iframe
-          title='Steam Widget'
-          src='https://store.steampowered.com/widget/1764410/'
-          frameBorder='0'
-          height='190'
-          style={{
-            width: '100%',
-            maxWidth: '646px'
-          }}
-        /> : null
+          <iframe
+            title='Steam Widget'
+            src='https://store.steampowered.com/widget/1764410/'
+            frameBorder='0'
+            height='190'
+            style={{
+              width: '100%',
+              maxWidth: '646px'
+            }}
+          /> : null
       }
       {
         pageLang === 'en' ?
-        <p>(Sorry for the shameless self promotion)</p> : null
+          <p>(Sorry for the shameless self promotion)</p> : null
       }
       {i18n[pageLang].loc.footer.disclaimer} /
       <a href='https://github.com/chaosspam/DLDialogueScreenGenerator'> Github </a>

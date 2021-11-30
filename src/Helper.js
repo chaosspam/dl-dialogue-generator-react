@@ -41,15 +41,15 @@ function getDragAfterElement(x, y) {
   let maxBoxY = 0;
   let maxBoxX = 0;
 
-  for(let i = 0; i < tabs.length; i++) {
+  for (let i = 0; i < tabs.length; i++) {
     const box = tabs[i].getBoundingClientRect();
     const boxY = box.top + box.height / 2;
-    if(boxY > maxBoxY) {
+    if (boxY > maxBoxY) {
       maxBoxY = boxY;
     }
   }
 
-  for(let i = 0; i < tabs.length; i++) {
+  for (let i = 0; i < tabs.length; i++) {
     const tab = tabs[i];
     const box = tab.getBoundingClientRect();
     const offsetX = x - (box.right - box.width / 2);
@@ -57,23 +57,23 @@ function getDragAfterElement(x, y) {
 
     // The tab is on the row if the mouse is above the row
     const activeRow = offsetY < 0 && -offsetY <= minYOffset
-    if(activeRow) {
+    if (activeRow) {
       minYOffset = Math.abs(offsetY);
 
-      if(offsetX < 0) {
-        if(-offsetX < minXOffset) {
+      if (offsetX < 0) {
+        if (-offsetX < minXOffset) {
           after = tab;
           minXOffset = -offsetX;
         }
       }
-      else if(box.right > maxBoxX) {
+      else if (box.right > maxBoxX) {
         maxBoxX = box.right;
         afterRightMost = i + 1;
       }
     }
   }
 
-  if(after === null && afterRightMost >= 0 && afterRightMost < tabs.length - 1) {
+  if (after === null && afterRightMost >= 0 && afterRightMost < tabs.length - 1) {
     after = tabs[afterRightMost];
   }
 
@@ -88,7 +88,7 @@ function getDragAfterElement(x, y) {
 async function fetchJson(url) {
   try {
     let response = await fetch(url);
-    if(response.ok) {
+    if (response.ok) {
       let json = await response.json();
       return json;
     } else {
@@ -104,7 +104,7 @@ async function fetchJson(url) {
  * @param {string} src - source of the image
  * @returns {Promise} - resolves to the image element if the image loads successfully
  */
-function loadImage(src){
+function loadImage(src) {
   let img = new Image();
   img.crossOrigin = "anonymous";
   img.src = src;

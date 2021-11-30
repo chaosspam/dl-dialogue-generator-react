@@ -81,3 +81,14 @@
 .tab > div {
   margin: 0 1em;
 }
+
+@media (max-width: 768px) {
+  .tab-bar li {
+    box-sizing: border-box;
+    padding: 7px 16px;
+    margin: 0 2px 0 0;
+    font-size: 14px;
+    width: calc((100% / 3) - 4px);
+    height: 32px;
+  }
+}
