@@ -118,6 +118,7 @@ function LayersPanel(props) {
         active={deletePanelActive}
         removeLayer={() => removeLayer(activeTabId)}
         closePrompt={() => setDeletePanelActive(false)}
+        loc={i18n[pageLang].loc}
       />
     </DndContext>
   );

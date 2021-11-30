@@ -27,6 +27,8 @@
       "auto": "Fit Canvas",
       "noDeleteBaseLayer": "Base layer cannot be removed!",
       "deleteLayerConfirm": "Are you sure you want to delete this layer?",
+      "delete": "Delete",
+      "cancel": "Cancel",
       "layers" : {
         "default": {
           "defaultPortraitSrc": "images/adPortrait.png",
@@ -133,6 +135,8 @@
       "auto": "符合畫面",
       "noDeleteBaseLayer": "無法刪除基底圖層!",
       "deleteLayerConfirm": "確定刪除此圖層?",
+      "delete": "删除",
+      "cancel": "取消",
       "layers" : {
         "default": {
           "defaultPortraitSrc": "images/adPortrait.png",
@@ -239,6 +243,8 @@
       "auto": "符合画面",
       "noDeleteBaseLayer": "无法删除基底图层!",
       "deleteLayerConfirm": "确定删除此图层?",
+      "delete": "删除",
+      "cancel": "取消",
       "layers" : {
         "default": {
           "defaultPortraitSrc": "images/adPortrait.png",
@@ -345,6 +351,8 @@
       "auto": "画面に合う",
       "noDeleteBaseLayer": "ベースレイヤーは削除できません!",
       "deleteLayerConfirm": "レイヤーを削除しますか?",
+      "delete": "削除する",
+      "cancel": "キャンセル",
       "layers" : {
         "default": {
           "defaultPortraitSrc": "images/adPortrait.png",
