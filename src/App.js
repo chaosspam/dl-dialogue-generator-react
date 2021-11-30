@@ -24,6 +24,8 @@ class App extends React.Component {
     {
       savedLang = 'en';
     }
+    document.documentElement.lang = i18n[savedLang].bcp47;
+    document.title = i18n[savedLang].loc.title;
 
     this.state = {
       // Screen drawing data
@@ -88,6 +90,7 @@ class App extends React.Component {
   setLanguage(language) {
     localStorage.setItem('pageLanguage', language);
     document.documentElement.lang = i18n[language].bcp47;
+    document.title = i18n[language].loc.title;
     this.setState({pageLang: language});
   }
 
