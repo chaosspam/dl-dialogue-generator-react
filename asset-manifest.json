@@ -1,6 +1,6 @@
 {
   "files": {
-    "main.css": "/dl-dialogue-generator-react/static/css/main.e6451e42.chunk.css",
+    "main.css": "/dl-dialogue-generator-react/static/css/main.110f0d4c.chunk.css",
     "main.js": "/dl-dialogue-generator-react/static/js/main.df15f135.chunk.js",
     "main.js.map": "/dl-dialogue-generator-react/static/js/main.df15f135.chunk.js.map",
     "runtime-main.js": "/dl-dialogue-generator-react/static/js/runtime-main.5e06b827.js",
@@ -10,7 +10,7 @@
     "static/js/3.fb5f8cd6.chunk.js": "/dl-dialogue-generator-react/static/js/3.fb5f8cd6.chunk.js",
     "static/js/3.fb5f8cd6.chunk.js.map": "/dl-dialogue-generator-react/static/js/3.fb5f8cd6.chunk.js.map",
     "index.html": "/dl-dialogue-generator-react/index.html",
-    "static/css/main.e6451e42.chunk.css.map": "/dl-dialogue-generator-react/static/css/main.e6451e42.chunk.css.map",
+    "static/css/main.110f0d4c.chunk.css.map": "/dl-dialogue-generator-react/static/css/main.110f0d4c.chunk.css.map",
     "static/js/2.529a152f.chunk.js.LICENSE.txt": "/dl-dialogue-generator-react/static/js/2.529a152f.chunk.js.LICENSE.txt",
     "static/media/anger_l.b49aa0aa.png": "/dl-dialogue-generator-react/static/media/anger_l.b49aa0aa.png",
     "static/media/anger_r.a7ed1511.png": "/dl-dialogue-generator-react/static/media/anger_r.a7ed1511.png",
@@ -48,7 +48,7 @@
   "entrypoints": [
     "static/js/runtime-main.5e06b827.js",
     "static/js/2.529a152f.chunk.js",
-    "static/css/main.e6451e42.chunk.css",
+    "static/css/main.110f0d4c.chunk.css",
     "static/js/main.df15f135.chunk.js"
   ]
 }
