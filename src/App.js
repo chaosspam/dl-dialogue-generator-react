@@ -95,12 +95,6 @@ class App extends React.Component {
 
   async initialDraw() {
     try {
-      // Wait for fonts to load before drawing
-      await document.fonts.load('30px dragalialost_en');
-      await document.fonts.load('30px dragalialost_ja');
-      await document.fonts.load('30px dragalialost_zh_tw');
-      await document.fonts.load('30px dragalialost_zh_cn');
-
       // Draw dialogue screen
       await this.drawDialogueScreen();
     } catch (e) {
@@ -129,24 +123,23 @@ class App extends React.Component {
     ctx.clearRect(0, 0, canvas.width, canvas.height);
     ctxPreview.clearRect(0, 0, preview.width, preview.height);
 
-    // Load images for use
-    await this.loadTextures();
+    const loadTexture = this.loadTexture;
 
-    let bar = textures.bar;
+    let bar = await loadTexture('bar');
 
     if (dialogueType === 'intro') {
-      bar = textures.introBar;
-      ctx.drawImage(textures.introBack, 0, 0);
+      bar = await loadTexture('introBar');
+      ctx.drawImage(await loadTexture('introBack'), 0, 0);
     }
     if (dialogueType === 'caption' || dialogueType === 'narration') {
-      bar = textures.caption;
+      bar = await loadTexture('caption');
     }
     if (dialogueType === 'full') {
-      bar = textures.fullscreen;
+      bar = await loadTexture('fullscreen');
     }
     if (dialogueType === 'book') {
-      ctx.drawImage(textures.book, 0, 0);
-      bar = textures['skip_' + lang];
+      ctx.drawImage(await loadTexture('book'), 0, 0);
+      bar = await loadTexture('skip_' + lang);
     }
 
     // Draw Layers
@@ -160,9 +153,11 @@ class App extends React.Component {
     ctx.drawImage(bar, 0, 0);
     // If language is not English, we draw the skip button in other language
     if (lang !== 'en') {
-      ctx.drawImage(textures['skip_' + lang], 0, 0);
+      ctx.drawImage(await loadTexture('skip_' + lang), 0, 0);
     }
 
+    // Wait for font load
+    await document.fonts.load(`30px dragalialost_${lang}`);
     this.drawDialogueText(dialogueType, ctx, lang);
 
     // Draw the editor canvas on the smaller preview canvas
@@ -171,13 +166,16 @@ class App extends React.Component {
     drawing = false;
   }
 
-  async loadTextures() {
-    if (!textures.loaded) {
-      for (let key in images) {
+  async loadTexture(key) {
+    if(!textures[key]) {
+      try {
         textures[key] = await loadImage(images[key]);
+      } catch (error) {
+        console.error(error);
+        return null;
       }
-      textures.loaded = true;
     }
+    return textures[key];
   }
 
   /**
@@ -243,7 +241,7 @@ class App extends React.Component {
     if (emotionName !== 'none') {
       let emotionSide = settings.emotionSide;
       emotionName += '_' + emotionSide;
-      const emotion = textures[emotionName];
+      const emotion = await this.loadTexture(emotionName);
       this.drawImageWithData(ctx, emotion,
         emotionSide === 'l' ? emotionFromSide : ctx.canvas.width - emotionFromSide,
         emotionYPos,
