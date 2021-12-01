@@ -11,13 +11,17 @@ function SettingsPanel(props) {
    */
   async function downloadImage(e) {
     e.target.innerText = loc.generating;
-    const blob = await new Promise(resolve => id('editor').toBlob(resolve, 'image/png'));
-    e.target.innerText = loc.download;
-
-    let link = document.createElement('a');
-    link.href = URL.createObjectURL(blob);
-    link.download = `${id('name').value.toLowerCase()}_dialogue_screen.png`;
-    link.click();
+    try {
+      const blob = await new Promise(resolve => id('editor').toBlob(resolve, 'image/png'));
+      e.target.innerText = loc.download;
+      let link = document.createElement('a');
+      link.href = URL.createObjectURL(blob);
+      link.download = `${id('name').value.toLowerCase()}_dialogue_screen.png`;
+      link.click();
+    } catch(error) {
+      console.error(error);
+      e.target.innerText = loc.download;
+    }
   }
 
   return (

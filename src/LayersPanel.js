@@ -169,7 +169,7 @@ function LayerTabPane(props) {
       <div>
         <h2>{loc.layerImage}</h2>
         <label>{loc.reccomendedSize}</label>
-        <img src={layer.image} alt='Layer' id={`img_${layer.id}`} onLoad={drawDialogueScreen} />
+        <img src={layer.image} alt='Layer' id={`img_${layer.id}`} onLoad={drawDialogueScreen} crossOrigin="anonymous"/>
         <input type='file' accept='image/*' onChange={e => { updateLayer(layer.id, { image: window.URL.createObjectURL(e.target.files[0]) }); }} />
         <button className='button delete' onClick={openPrompt}>{loc.deleteLayer}</button>
         <button className={`button ${portraitPanelActive ? 'selected' : ''}`} onClick={togglePortraitPanel}>{loc.portrait}</button>
