@@ -438,8 +438,7 @@ class App extends React.Component {
    * @param {string} imgSrc - Image source for the new layer
    */
   addLayerDefault() {
-    let pageLang = document.documentElement.lang;
-    return this.addLayer(`${i18n[pageLang].loc.layers.layer} ${this.state.layers.length + 1}`, images.portrait);
+    return this.addLayer(`${i18n[this.state.pageLang].loc.layers.layer} ${this.state.layers.length + 1}`, images.portrait);
   }
 
   /**
