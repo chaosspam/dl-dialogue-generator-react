@@ -109,65 +109,74 @@ class App extends React.Component {
     if (drawing) return;
     drawing = true;
 
-    // Get canvas context
-    const canvas = id('editor');
-    const preview = id('preview');
-    const ctx = canvas.getContext('2d');
-    const ctxPreview = preview.getContext('2d');
+    try {
+      // Get canvas context
+      const canvas = id('editor');
+      const preview = id('preview');
+      const ctx = canvas.getContext('2d');
+      const ctxPreview = preview.getContext('2d');
 
-    // Get draw type
-    const dialogueType = this.state.settings.dialogueType;
-    const lang = this.state.settings.font;
+      // Get draw type
+      const dialogueType = this.state.settings.dialogueType;
+      const lang = this.state.settings.font;
 
-    // Clear the canvas
-    ctx.clearRect(0, 0, canvas.width, canvas.height);
-    ctxPreview.clearRect(0, 0, preview.width, preview.height);
+      // Clear the canvas
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      ctxPreview.clearRect(0, 0, preview.width, preview.height);
 
-    const loadTexture = this.loadTexture;
+      const loadTexture = this.loadTexture;
 
-    let bar = await loadTexture('bar');
+      let bar = await loadTexture('bar');
 
-    if (dialogueType === 'intro') {
-      bar = await loadTexture('introBar');
-      ctx.drawImage(await loadTexture('introBack'), 0, 0);
+      if (dialogueType === 'intro') {
+        bar = await loadTexture('introBar');
+        ctx.drawImage(await loadTexture('introBack'), 0, 0);
+      }
+      if (dialogueType === 'caption' || dialogueType === 'narration') {
+        bar = await loadTexture('caption');
+      }
+      if (dialogueType === 'full') {
+        bar = await loadTexture('fullscreen');
+      }
+      if (dialogueType === 'book') {
+        ctx.drawImage(await loadTexture('book'), 0, 0);
+        bar = await loadTexture('skip_' + lang);
+      }
+
+      // Draw Layers
+      for (let i = 0; i < this.state.layers.length; i++) {
+        let layer = this.state.layers[i];
+        let image = id(`img_${layer.id}`);
+        if (!image.complete) {
+          // If image has not loaded wait for image to load
+          await new Promise((resolve, reject) => { image.onload = resolve; image.onerror = reject; });
+        }
+        this.drawImageWithData(ctx, id(`img_${layer.id}`), canvas.width / 2, canvas.height / 2, layer, dialogueType === 'intro')
+      }
+
+      await this.drawEmotion(ctx);
+
+      ctx.drawImage(bar, 0, 0);
+      // If language is not English, we draw the skip button in other language
+      if (lang !== 'en') {
+        ctx.drawImage(await loadTexture('skip_' + lang), 0, 0);
+      }
+
+      // Wait for font load
+      await document.fonts.load(`30px dragalialost_${lang}`);
+      this.drawDialogueText(dialogueType, ctx, lang);
+
+      // Draw the editor canvas on the smaller preview canvas
+      ctxPreview.drawImage(canvas, 0, 0, preview.width, preview.height);
+
+    } catch (error) {
+      console.error(error);
     }
-    if (dialogueType === 'caption' || dialogueType === 'narration') {
-      bar = await loadTexture('caption');
-    }
-    if (dialogueType === 'full') {
-      bar = await loadTexture('fullscreen');
-    }
-    if (dialogueType === 'book') {
-      ctx.drawImage(await loadTexture('book'), 0, 0);
-      bar = await loadTexture('skip_' + lang);
-    }
-
-    // Draw Layers
-    for (let i = 0; i < this.state.layers.length; i++) {
-      let layer = this.state.layers[i];
-      this.drawImageWithData(ctx, id(`img_${layer.id}`), canvas.width / 2, canvas.height / 2, layer, dialogueType === 'intro')
-    }
-
-    await this.drawEmotion(ctx);
-
-    ctx.drawImage(bar, 0, 0);
-    // If language is not English, we draw the skip button in other language
-    if (lang !== 'en') {
-      ctx.drawImage(await loadTexture('skip_' + lang), 0, 0);
-    }
-
-    // Wait for font load
-    await document.fonts.load(`30px dragalialost_${lang}`);
-    this.drawDialogueText(dialogueType, ctx, lang);
-
-    // Draw the editor canvas on the smaller preview canvas
-    ctxPreview.drawImage(canvas, 0, 0, preview.width, preview.height);
-
     drawing = false;
   }
 
   async loadTexture(key) {
-    if(!textures[key]) {
+    if (!textures[key]) {
       try {
         textures[key] = await loadImage(images[key]);
       } catch (error) {
