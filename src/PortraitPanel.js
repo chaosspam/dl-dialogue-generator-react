@@ -34,7 +34,8 @@ class PortraitPanel extends React.Component {
     const { loc, pageLang } = this.props
 
     const options = Object.keys(this.state.fileList).map(key => {
-      return <option key={key} value={this.state.fileList[key][i18n[pageLang].code]} data-id={key} />
+      const name = this.state.fileList[key][i18n[pageLang].code];
+      return <option key={key} value={`${key} ${name}`} data-id={key} />
     });
 
     const faceParts = this.state.face.map(face => {
