@@ -93,13 +93,23 @@ class PortraitPanel extends React.Component {
   async loadSelectedPortraitData(charId, characterName) {
     let data = await fetchJson(PORTRAIT_URL + `portrait_output/${charId}/data.json`);
 
+    let faceURL = '';
+    if(data.partsData.faceParts[0] !== undefined) {
+      faceURL = PORTRAIT_URL + data.partsData.faceParts[0].substring(2);
+    }
+
+    let mouthURL = '';
+    if(data.partsData.mouthParts[0] !== undefined) {
+      mouthURL = PORTRAIT_URL + data.partsData.mouthParts[0].substring(2);
+    }
+
     this.setState({
       face: data.partsData.faceParts,
       mouth: data.partsData.mouthParts,
       portraitData: {
         name: characterName,
-        face: PORTRAIT_URL + data.partsData.faceParts[0].substring(2),
-        mouth: PORTRAIT_URL + data.partsData.mouthParts[0].substring(2),
+        face: faceURL,
+        mouth: mouthURL,
         base: PORTRAIT_URL + `portrait_output/${charId}/${charId}_base.png`,
         offset: data.offset,
       }
