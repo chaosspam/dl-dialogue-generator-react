@@ -22,7 +22,7 @@ function Footer(props) {
           <p>(Sorry for the shameless self promotion)</p> : null
       }
       {i18n[pageLang].loc.footer.disclaimer} /
-      <a href='https://github.com/chaosspam/DLDialogueScreenGenerator'> Github </a>
+      <a href='https://github.com/chaosspam/dl-dialogue-generator-react'> Github </a>
       <br />
       <select onChange={(e) => setLanguage(e.target.value)} defaultValue={pageLang} className='language-select'>
         <option value='en'>English</option>
