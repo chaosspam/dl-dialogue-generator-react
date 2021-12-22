@@ -140,7 +140,7 @@ class PortraitPanel extends React.Component {
     const blob = await new Promise(resolve => portraitCanvas.toBlob(resolve));
     const url = URL.createObjectURL(blob);
 
-    this.props.updateLayer(this.props.activeLayer, { image: url });
+    this.props.updateLayer(this.props.activeLayer, { image: url, offsetY: 70, scale: 1.175 });
   }
 
   async updatePortraitData(updatedValue) {

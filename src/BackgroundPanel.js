@@ -64,7 +64,7 @@ class BackgroundCarousel extends React.Component {
           key={image.fileName}
           src={THUMB_URL + image.fileName}
           data-full-src={image.url}
-          onClick={() => this.props.updateLayer(this.props.activeLayer, { image: image.url })}
+          onClick={() => this.props.updateLayer(this.props.activeLayer, { image: image.url, offsetY: 65, scale: 1.2 })}
           alt='Background'
         />
       );
