@@ -298,7 +298,7 @@ class App extends React.Component {
     let startX = textProp.dialogueXPos;
     let startY = textProp.dialogueYPos;
 
-    ctx.fillStyle = '#071726';
+    ctx.fillStyle = '#012231';
 
     if (dialogueType === 'intro') {
       this.drawTitleIntro(ctx, textProp, lang, dialogue);

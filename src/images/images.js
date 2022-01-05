@@ -8,7 +8,7 @@ import introBack from './introBack.png';
 import introBar from './introBar.png';
 import skip_ja from './skip_ja.png';
 import skip_zh_tw from './skip_zh_tw.png';
-import skip_zh_cn from './skip_zh_tw.png';
+import skip_zh_cn from './skip_zh_cn.png';
 import skip_en from './skip_en.png';
 import anger_l from './anger_l.png';
 import anger_r from './anger_r.png';
