@@ -1,25 +1,23 @@
 import i18n from './data/i18n.json'
 
-function Footer(props) {
-  const { pageLang, setLanguage } = props;
+function Footer({ pageLang, setLanguage }) {
   return (
     <footer>
       {
-        pageLang === 'en' ?
-          <iframe
-            title='Steam Widget'
-            src='https://store.steampowered.com/widget/1764410/'
-            frameBorder='0'
-            height='190'
-            style={{
-              width: '100%',
-              maxWidth: '646px'
-            }}
-          /> : null
-      }
-      {
-        pageLang === 'en' ?
-          <p>(Sorry for the shameless self promotion)</p> : null
+        pageLang === 'en' &&
+          <>
+            <iframe
+              title='Steam Widget'
+              src='https://store.steampowered.com/widget/1764410/'
+              frameBorder='0'
+              height='190'
+              style={{
+                width: '100%',
+                maxWidth: '646px'
+              }}
+            />
+            <p>(Sorry for the shameless self promotion)</p>
+          </>
       }
       {i18n[pageLang].loc.footer.disclaimer} /
       <a href='https://github.com/chaosspam/dl-dialogue-generator-react'> Github </a>

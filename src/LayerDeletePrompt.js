@@ -1,13 +1,12 @@
 import './LayerDeletePrompt.css';
-import React from 'react';
 
-function LayerDeletePrompt(props) {
+function LayerDeletePrompt({ active, loc, removeLayer, closePrompt }) {
   return (
-    <div className={`layer-delete-prompt ${props.active ? '' : 'hidden'}`}>
+    <div className={`layer-delete-prompt ${active ? '' : 'hidden'}`}>
       <div>
-        <p>{props.loc.deleteLayerConfirm}</p>
-        <button className='button delete' onClick={() => { props.removeLayer(); props.closePrompt(); }}>{props.loc.delete}</button>
-        <button className='button' onClick={props.closePrompt}>{props.loc.cancel}</button>
+        <p>{loc.deleteLayerConfirm}</p>
+        <button className='button delete' onClick={() => { removeLayer(); closePrompt(); }}>{loc.delete}</button>
+        <button className='button' onClick={closePrompt}>{loc.cancel}</button>
       </div>
     </div>
   );

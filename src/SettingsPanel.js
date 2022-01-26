@@ -1,28 +1,9 @@
 import React from 'react';
 import i18n from './data/i18n.json';
-import { id } from './Helper.js';
+import SliderGroup from './SliderGroup';
 
-function SettingsPanel(props) {
-  const { settings, updateSettings, pageLang } = props;
+export default function SettingsPanel({ settings, updateSettings, pageLang, downloadImage }) {
   const loc = i18n[pageLang].loc.settings;
-
-  /**
-   * Generate a download link and click it
-   */
-  async function downloadImage(e) {
-    e.target.innerText = loc.generating;
-    try {
-      const blob = await new Promise(resolve => id('editor').toBlob(resolve, 'image/png'));
-      e.target.innerText = loc.download;
-      let link = document.createElement('a');
-      link.href = URL.createObjectURL(blob);
-      link.download = `${id('name').value.toLowerCase()}_dialogue_screen.png`;
-      link.click();
-    } catch(error) {
-      console.error(error);
-      e.target.innerText = loc.download;
-    }
-  }
 
   return (
     <div id='dialogueArea' className='settings'>
@@ -92,21 +73,16 @@ function SettingsPanel(props) {
         <label htmlFor='right'>{loc.right}</label>
       </div>
 
-      <div>
-        <label>{loc.emotion_x}</label>
-        <div className='input-group'>
-          <input type='number' id='emotionOffsetX' min='-200' max='200' value={settings.emotionOffsetX} onChange={e => updateSettings({ emotionOffsetX: e.target.value })} />
-          <input type='range' min='-200' max='200' value={settings.emotionOffsetX} onChange={e => updateSettings({ emotionOffsetX: e.target.value })} />
-        </div>
-      </div>
-
-      <div>
-        <label>{loc.emotion_y}</label>
-        <div className='input-group'>
-          <input type='number' id='emotionOffsetY' min='-200' max='200' value={settings.emotionOffsetY} onChange={e => updateSettings({ emotionOffsetY: e.target.value })} />
-          <input type='range' min='-200' max='200' value={settings.emotionOffsetY} onChange={e => updateSettings({ emotionOffsetY: e.target.value })} />
-        </div>
-      </div>
+      <SliderGroup
+        label={loc.emotion_x} min='-200' max='200' step='0.1'
+        value={settings.emotionOffsetX}
+        onChange={e => updateSettings({ emotionOffsetX: e.target.value })}
+      />
+      <SliderGroup
+        label={loc.emotion_y} min='-200' max='200' step='0.1'
+        value={settings.emotionOffsetY}
+        onChange={e => updateSettings({ emotionOffsetY: e.target.value })}
+      />
 
       <div>
         <button className='button' id='download' onClick={downloadImage}>{loc.download}</button>
@@ -115,5 +91,3 @@ function SettingsPanel(props) {
     </div>
   );
 }
-
-export default SettingsPanel;
