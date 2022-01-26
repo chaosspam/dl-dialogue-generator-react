@@ -1,5 +1,4 @@
-import React from 'react';
-import { useState } from 'react/cjs/react.development';
+import { useState } from 'react';
 import data from './data/background_data.json';
 
 const THUMB_URL = 'https://dragalialost.wiki/thumb.php?width=75&f='
