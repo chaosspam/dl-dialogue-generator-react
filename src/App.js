@@ -49,7 +49,7 @@ function App() {
   return (
     <div>
       <h1 id="top">{i18n[pageLang].loc.title}</h1>
-      <canvas id='preview' width='250' height='445'></canvas>
+      <canvas id='preview' width='250' height='445' onContextMenu={e => {e.preventDefault(); downloadImage(e);}}></canvas>
       <section>
         <LayersPanel
           layers={layers}
