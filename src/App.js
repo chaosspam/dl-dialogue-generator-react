@@ -13,7 +13,7 @@ const textures = {};
 let drawing = false;
 let layerId = 0;
 
-function App() {
+export default function App() {
 
   let savedLang = localStorage.getItem('pageLanguage');
   // If no saved language or language is not found, default to English
@@ -49,7 +49,7 @@ function App() {
   return (
     <div>
       <h1 id="top">{i18n[pageLang].loc.title}</h1>
-      <canvas id='preview' width='250' height='445' onContextMenu={e => {e.preventDefault(); downloadImage(e);}}></canvas>
+      <canvas id='preview' width='250' height='445' onContextMenu={e => { e.preventDefault(); downloadImage(e); }}></canvas>
       <section>
         <LayersPanel
           layers={layers}
@@ -171,7 +171,7 @@ function App() {
       link.href = URL.createObjectURL(blob);
       link.download = `${id('name').value.toLowerCase()}_dialogue_screen.png`;
       link.click();
-    } catch(error) {
+    } catch (error) {
       console.error(error);
       e.target.innerText = loc.download;
     }
@@ -227,7 +227,7 @@ async function drawDialogueScreen(settings, layers) {
     }
 
     // Draw Layers
-    if(layers) {
+    if (layers) {
       for (let i = 0; i < layers.length; i++) {
         let layer = layers[i];
         let image = id(`img_${layer.id}`);
@@ -514,5 +514,3 @@ function drawTitleIntro(ctx, textProp, lang, text) {
 
   ctx.restore();
 }
-
-export default App;

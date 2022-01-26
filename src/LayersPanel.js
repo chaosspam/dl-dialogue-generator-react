@@ -17,7 +17,7 @@ export default function LayersPanel({ layers, drawDialogueScreen, addLayer, remo
   const loc = i18n[pageLang].loc.layers;
 
   useEffect(() => {
-    if (layers && layers.length ) {
+    if (layers && layers.length) {
       setActiveTab(layers[layers.length - 1].id);
     }
 

@@ -89,12 +89,12 @@ function PortraitPanel({ active, loc, pageLang, updateLayer, activeLayer }) {
       let data = await fetchJson(PORTRAIT_URL + `portrait_output/${charId}/data.json`);
 
       let faceURL = '';
-      if(data.partsData.faceParts[0] !== undefined) {
+      if (data.partsData.faceParts[0] !== undefined) {
         faceURL = PORTRAIT_URL + data.partsData.faceParts[0].substring(2);
       }
 
       let mouthURL = '';
-      if(data.partsData.mouthParts[0] !== undefined) {
+      if (data.partsData.mouthParts[0] !== undefined) {
         mouthURL = PORTRAIT_URL + data.partsData.mouthParts[0].substring(2);
       }
 
@@ -123,7 +123,7 @@ function PortraitPanel({ active, loc, pageLang, updateLayer, activeLayer }) {
  * current tab to the portrait canvas
  */
 async function drawPortraitAndRender(portraitData, updateLayer, activeLayer) {
-  if(portraitData === null) return;
+  if (portraitData === null) return;
 
   const ctx = portraitCanvas.getContext('2d');
   ctx.clearRect(0, 0, portraitCanvas.width, portraitCanvas.height);
@@ -149,11 +149,11 @@ async function drawPortraitAndRender(portraitData, updateLayer, activeLayer) {
 
 
 
-function FacePartImage({src, updatePortraitData}) {
+function FacePartImage({ src, updatePortraitData }) {
   return <img src={src} onClick={() => updatePortraitData({ face: src })} alt='Face Part' />
 }
 
-function MouthPartImage({src, updatePortraitData}) {
+function MouthPartImage({ src, updatePortraitData }) {
   return <img src={src} onClick={() => updatePortraitData({ mouth: src })} alt='Mouth Part' />
 }
 

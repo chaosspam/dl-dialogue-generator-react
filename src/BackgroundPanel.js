@@ -6,8 +6,8 @@ const CAROUSEL_SIZE = 12;
 
 const backgroundData = {};
 
-for(let i = 0; i < data.length; i++) {
-  if(backgroundData[data[i].type] === undefined) {
+for (let i = 0; i < data.length; i++) {
+  if (backgroundData[data[i].type] === undefined) {
     backgroundData[data[i].type] = [];
   }
   backgroundData[data[i].type].push(data[i]);
@@ -53,16 +53,16 @@ function BackgroundCarousel({ images, activeLayer, updateLayer }) {
   return (
     <div className="carousel">
       <button className="button" onClick={() => setIndex(prev())}>&lt;</button>
-        <div className="image-container">
-          {backgroundImages}
-        </div>
+      <div className="image-container">
+        {backgroundImages}
+      </div>
       <button className="button" onClick={() => setIndex(next())}>&gt;</button>
     </div>
   );
 
   function prev() {
     let newIndex = index - CAROUSEL_SIZE;
-    if(newIndex < 0) {
+    if (newIndex < 0) {
       newIndex = 0;
     }
     return newIndex;
@@ -70,7 +70,7 @@ function BackgroundCarousel({ images, activeLayer, updateLayer }) {
 
   function next() {
     let newIndex = index + CAROUSEL_SIZE;
-    if(newIndex >= images.length) {
+    if (newIndex >= images.length) {
       return index;
     } else {
       return newIndex;
