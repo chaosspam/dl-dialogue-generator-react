@@ -3,6 +3,7 @@ import PortraitPanel from './PortraitPanel.js';
 import BackgroundPanel from './BackgroundPanel.js';
 import LayerDeletePrompt from './LayerDeletePrompt.js';
 import SliderGroup from './SliderGroup';
+import usePrevious from './usePrevious';
 import { useEffect, useState } from 'react';
 import { DndContext, useSensor, useSensors, MouseSensor, TouchSensor, closestCenter } from '@dnd-kit/core';
 import { SortableContext, useSortable, rectSortingStrategy } from '@dnd-kit/sortable';
@@ -16,12 +17,14 @@ export default function LayersPanel({ layers, drawDialogueScreen, addLayer, remo
   const [deletePanelActive, setDeletePanelActive] = useState(false);
   const loc = i18n[pageLang].loc.layers;
 
+  const prevLayers = usePrevious(layers);
+
   useEffect(() => {
-    if (layers && layers.length) {
+    if (layers && layers.length &&
+      ((!prevLayers) || (prevLayers && prevLayers.length !== layers.length))) {
       setActiveTab(layers[layers.length - 1].id);
     }
-
-  }, [layers]);
+  }, [layers, prevLayers]);
 
   const togglePortraitPanel = () => {
     setPortraitPanelActive(!portraitPanelActive);
