@@ -21,7 +21,7 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "predeploy": "npm run build",
+    "predeploy": "node update-build-number.js && yarn run build",
     "deploy": "gh-pages -d build"
   },
   "eslintConfig": {

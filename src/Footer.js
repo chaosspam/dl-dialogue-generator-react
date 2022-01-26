@@ -1,4 +1,5 @@
 import i18n from './data/i18n.json'
+import metadata from './data/metadata.json';
 
 export default function Footer({ pageLang, setLanguage }) {
   return (
@@ -20,7 +21,7 @@ export default function Footer({ pageLang, setLanguage }) {
         </>
       }
       {i18n[pageLang].loc.footer.disclaimer} /
-      <a href='https://github.com/chaosspam/dl-dialogue-generator-react'> Github </a>
+      <a href='https://github.com/chaosspam/dl-dialogue-generator-react'> Github </a> / {`v${metadata.buildMajor}.${metadata.buildMinor}.${metadata.buildRevision}`}
       <br />
       <select onChange={(e) => setLanguage(e.target.value)} defaultValue={pageLang} className='language-select'>
         <option value='en'>English</option>
