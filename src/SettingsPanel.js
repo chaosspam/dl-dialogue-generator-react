@@ -10,7 +10,7 @@ export default function SettingsPanel({ settings, updateSettings, pageLang, down
 
       <div>
         <label>{loc.speakerName}</label>
-        <input type='text' placeholder='Speaker Name' id='name' defaultValue={settings.speaker} onChange={e => updateSettings(settings.id, { speaker: e.target.value })} />
+        <input type='text' placeholder='Speaker Name' id='name' defaultValue={settings.speaker} onChange={e => updateSettings({ speaker: e.target.value })} />
       </div>
 
       <div>
@@ -78,6 +78,7 @@ export default function SettingsPanel({ settings, updateSettings, pageLang, down
         value={settings.emotionOffsetX}
         onChange={e => updateSettings({ emotionOffsetX: e.target.value })}
       />
+
       <SliderGroup
         label={loc.emotion_y} min='-200' max='200' step='0.1'
         value={settings.emotionOffsetY}
