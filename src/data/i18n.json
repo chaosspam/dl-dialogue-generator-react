@@ -65,6 +65,7 @@
         "overlay": "Overlay"
       },
       "settings": {
+        "autowrap": "Auto Wrap",
         "default": {
           "speaker": "Fleur",
           "dialogueText": "I'm gonna make tons of memories this\nsummer and turn them all into paintings!"
@@ -174,6 +175,7 @@
         "overlay": "前景"
       },
       "settings": {
+        "autowrap": "自動換行",
         "default": {
           "speaker": "芙露璐",
           "dialogueText": "好～人家要創造好多夏天的回憶，\n然後把它們全部用畫記錄下來！"
@@ -283,6 +285,7 @@
         "overlay": "前景"
       },
       "settings": {
+        "autowrap": "自动换行",
         "default": {
           "speaker": "芙露璐",
           "dialogueText": "好～人家要创造好多夏天的回忆，\n然后把它们全部用画记录下来！"
@@ -392,6 +395,7 @@
         "overlay": "前景"
       },
       "settings": {
+        "autowrap": "おまかせ改行",
         "default": {
           "speaker": "フルル",
           "dialogueText": "よーし、(夏){なつ}の(思){おも}い(出){で}をたくさん(作){つく}って、\n(絵){え}にしましょう！"

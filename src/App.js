@@ -65,6 +65,7 @@ export default function App() {
           updateSettings={updateSettings}
           pageLang={pageLang}
           downloadImage={downloadImage}
+          wrapLines={wrapLines}
         />
       </section>
       <canvas id='editor' width='750' height='1334' className='hidden'></canvas>
@@ -391,9 +392,9 @@ function drawDialogueText(settings, dialogueType, ctx, lang) {
   let center = false;
 
   if (dialogueType === 'caption') {
+    fontSize = textProp.captionSize;
     startY = textProp.captionYPos;
     ctx.fillStyle = 'white';
-    fontSize = textProp.captionSize;
     center = true;
   } else if (dialogueType === 'narration' || dialogueType === 'full') {
     fontSize = textProp.dialogueSize;
@@ -462,6 +463,119 @@ function drawDialogueLine(ctx, lang, text, fontSize, startX, startY) {
   // Draw text without furigana
   ctx.font = normalFont;
   ctx.fillText(text, startX, startY);
+}
+
+/**
+ * Returns a dialogue string that is wrapped, where new lines are inserted to
+ * where the words should break up in the dialogue box
+ * @param {string} dialogue - the dialogue text to wrap
+ * @param {string} dialogueType - the type of the dialogue for font size
+ * @param {string} lang - language for the font type
+ * @returns
+ */
+function wrapLines(dialogue, dialogueType, lang) {
+  const canvas = id('editor');
+  const ctx = canvas.getContext('2d');
+  const textProp = i18n[lang].textProperties;
+
+  if(!ctx) {
+    return dialogue;
+  }
+
+  // Determine the size of the font
+  let fontSize = textProp.dialogueSize;
+  if (dialogueType === 'caption') {
+    fontSize = textProp.captionSize;
+  } else if (dialogueType === 'narration' || dialogueType === 'full') {
+    fontSize = textProp.dialogueSize;
+  } else if (dialogueType === 'book') {
+    fontSize = textProp.dialogueSize;
+  }
+
+  let margin = textProp.dialogueXPos;
+
+  ctx.font = `${fontSize}px dragalialost_${lang}`;
+
+  const canvasWidth = ctx.canvas.width;
+  const maxLineWidth = canvasWidth - (2 * margin);
+  // Break down dialogue to tokens
+  const tokens = dialogue.split(/\s+/);
+  const lines = [];
+  let currLine = [];
+
+  while(tokens.length > 0) {
+    // Grab a token
+    const token = tokens.shift();
+
+    // We first add the token to the current line
+    const line = [...currLine, token];
+    const lineText = line.join(' ');
+
+    // We measure the length of the text in the line
+    const base = lineText.replace(/\(([^)]+)\)\{[^}]+\}/g, (match, base) => base);
+    const lineWidth = ctx.measureText(base).width;
+
+    // If the line is shorter than max width, we add the token to the line
+    if (lineWidth <= maxLineWidth) {
+      currLine = line;
+      if(tokens.length === 0) {
+        lines.push(currLine.join(' '));
+      }
+    } else {
+      // Otherwise, we check if this is the only token in this line
+
+      // If it is, we need to break up this token (sad)
+      if (line.length === 1) {
+        let subtokens = [];
+        let last = 0;
+        token.replace(/\([^)]+\)\{[^}]+\}/g, (match, offset) => {
+          subtokens = subtokens.concat(token.substring(last, offset).split(''));
+          subtokens.push(match);
+          last = offset + match.length;
+          return match;
+        });
+        subtokens = subtokens.concat(token.substring(last).split(''));
+
+        let fragment = '';
+        while(subtokens.length > 0) {
+          // Grab a subtoken
+          const subtoken = subtokens.shift();
+          // Add the subtoken to the fragment
+          const lineText = fragment + subtoken;
+          // We measure the length of the fragment
+          const base = lineText.replace(/\(([^)]+)\)\{[^}]+\}/g, (match, base) => base);
+          const fragWidth = ctx.measureText(base).width;
+
+          // If the fragment is shorter than max width, we add the subtoken to the fragment
+          if (fragWidth <= maxLineWidth) {
+            fragment = lineText;
+          } else {
+            // Otherwise, we check this is a single subtoken that's too big
+            currLine = [];
+            // If it is, we can't break it up further, so we just push it
+            if (fragment === '') {
+              lines.push(lineText);
+            // Otherwise, we join this and the remaining subtokens back as a token
+            // Push the current fragment as a line, and get a new line
+            } else {
+              lines.push(fragment);
+              subtokens.unshift(subtoken);
+              tokens.unshift(subtokens.join(''));
+              subtokens = [];
+            }
+          }
+        }
+
+      // Otherwise, we place this token back in the queue
+      // and get a new line
+      } else {
+        lines.push(currLine.join(' '));
+        currLine = [];
+        tokens.unshift(token);
+      }
+    }
+  }
+  return lines.join('\n');
 }
 
 /**
