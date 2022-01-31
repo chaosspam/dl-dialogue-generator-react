@@ -162,18 +162,18 @@ export default function App() {
    * Generate a download link and click it
    */
   async function downloadImage(e) {
-    const loc = i18n[pageLang];
-    e.target.innerText = loc.generating;
+    const settings = i18n[pageLang].loc.settings;
+    e.target.innerText = settings.generating;
     try {
       const blob = await new Promise(resolve => id('editor').toBlob(resolve, 'image/png'));
-      e.target.innerText = loc.download;
+      e.target.innerText = settings.download;
       let link = document.createElement('a');
       link.href = URL.createObjectURL(blob);
       link.download = `${id('name').value.toLowerCase()}_dialogue_screen.png`;
       link.click();
     } catch (error) {
       console.error(error);
-      e.target.innerText = loc.download;
+      e.target.innerText = settings.download;
     }
   }
 }
