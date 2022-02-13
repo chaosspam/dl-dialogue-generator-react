@@ -48,7 +48,28 @@
         "offsetY": "Offset Y",
         "rotation": "Rotation",
         "scale": "Scale",
-        "flipX": "Flip X"
+        "flipX": "Flip X",
+        "filter": {
+          "filter": "Filter",
+          "type": "Filter Type",
+          "amount": "Amount",
+          "percentage": "Percentage",
+          "offsetX": "Offset X",
+          "offsetY": "Offset Y",
+          "color": "Color",
+          "degree": "Degree",
+          "none": "None",
+          "flashback": "Flashback",
+          "blur": "Blur",
+          "brightness": "Brightness",
+          "contrast": "Contrast",
+          "dropShadow": "Drop Shadow",
+          "grayscale": "Grayscale",
+          "hueRotate": "Hue Rotate",
+          "invert": "Invert",
+          "saturate": "Saturate",
+          "sepia": "Sepia"
+        }
       },
       "portrait": {
         "title": "Character (Powered by ",
@@ -158,7 +179,28 @@
         "offsetY": "上下調整",
         "rotation": "旋轉",
         "scale": "放大/縮小",
-        "flipX": "水平翻轉"
+        "flipX": "水平翻轉",
+        "filter": {
+          "filter": "濾鏡",
+          "type": "濾鏡類型",
+          "amount": "強度",
+          "percentage": "強度",
+          "offsetX": "左右偏移",
+          "offsetY": "上下偏移",
+          "color": "顏色",
+          "degree": "度數",
+          "none": "無",
+          "flashback": "回憶",
+          "blur": "模糊",
+          "brightness": "亮度",
+          "contrast": "對比",
+          "dropShadow": "影子",
+          "grayscale": "灰階",
+          "hueRotate": "顏色偏移",
+          "invert": "反相",
+          "saturate": "飽和",
+          "sepia": "懷舊"
+        }
       },
       "portrait": {
         "title": "美術圖 (以 ",
@@ -268,7 +310,28 @@
         "offsetY": "上下调整",
         "rotation": "旋转",
         "scale": "放大/缩小",
-        "flipX": "水平翻转"
+        "flipX": "水平翻转",
+        "filter": {
+          "filter": "滤镜",
+          "type": "滤镜类型",
+          "amount": "强度",
+          "percentage": "强度",
+          "offsetX": "左右偏移",
+          "offsetY": "上下偏移",
+          "color": "颜色",
+          "degree": "度数",
+          "none": "无",
+          "flashback": "回忆",
+          "blur": "模煳",
+          "brightness": "亮度",
+          "contrast": "对比",
+          "dropShadow": "影子",
+          "grayscale": "灰阶",
+          "hueRotate": "颜色偏移",
+          "invert": "反相",
+          "saturate": "饱和",
+          "sepia": "怀旧"
+        }
       },
       "portrait": {
         "title": "美术图 (以 ",
@@ -378,7 +441,28 @@
         "offsetY": "上下位置調整",
         "rotation": "回転",
         "scale": "拡大・縮小",
-        "flipX": "左右反転"
+        "flipX": "左右反転",
+        "filter": {
+          "filter": "フィルタ",
+          "type": "フィルタータイプ",
+          "amount": "強さ",
+          "percentage": "%",
+          "offsetX": "オフセットX",
+          "offsetY": "オフセットY",
+          "color": "色",
+          "degree": "度",
+          "none": "なし",
+          "flashback": "思い出",
+          "blur": "ぼかし",
+          "brightness": "明るさ",
+          "contrast": "コントラスト",
+          "dropShadow": "ドロップシャドウ",
+          "grayscale": "グレースケール",
+          "hueRotate": "色相回転",
+          "invert": "色相反転",
+          "saturate": "彩度",
+          "sepia": "セピア"
+        }
       },
       "portrait": {
         "title": "立ち絵 (",

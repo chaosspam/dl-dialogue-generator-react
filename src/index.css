@@ -242,6 +242,20 @@ input[type=checkbox], input[type=radio] {
   cursor: pointer;
 }
 
+input:disabled {
+  border-color: gray;
+  background-color: rgb(212, 209, 209);
+}
+
+.input-group--delete {
+  display: flex;
+  align-items: center;
+}
+
+.input-group--delete button {
+  margin: 0;
+}
+
 select {
   display: block;
   width: 100%;

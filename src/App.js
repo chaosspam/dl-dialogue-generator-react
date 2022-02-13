@@ -48,6 +48,7 @@ export default function App() {
 
   return (
     <div>
+      <Filters />
       <h1 id="top">{i18n[pageLang].loc.title}</h1>
       <canvas id='preview' width='250' height='445' onContextMenu={e => { e.preventDefault(); downloadImage(e); }}></canvas>
       <section>
@@ -115,7 +116,8 @@ export default function App() {
       'rotation': 0,
       'scale': 1,
       'opacity': 1,
-      'flipX': false
+      'flipX': false,
+      'filter': ''
     }
     return newLayer;
   }
@@ -295,8 +297,12 @@ function drawImageWithData(ctx, image, centerX, centerY, layer, dropShadow = fal
   let x = centerX - width / 2 + offsetX;
   let y = centerY - height / 2 + offsetY;
 
+  console.log(layer.filter);
+
   // Save current context state
   ctx.save();
+
+  ctx.filter = layer.filter;
 
   // Move the context to the pivot before rotating
   ctx.translate(centerX + offsetX, centerY + offsetY);
@@ -627,4 +633,22 @@ function drawTitleIntro(ctx, textProp, lang, text) {
   ctx.fillText(text, ctx.canvas.width - textWidth - textProp.introXPos, textProp.introTitleYPos);
 
   ctx.restore();
+}
+
+function Filters() {
+  return (
+    <svg width="0" height="0" viewBox="0 0 0 0">
+      <defs>
+        <filter id="flashback" x="0%" y="0%" width="100%" height="100%" colorInterpolationFilters="sRGB">
+          <feColorMatrix type="saturate" values="0"/>
+          <feColorMatrix
+            type="matrix"
+            values="0.929  0  0 0 0
+                    0  0.757 0 0 0
+                    0  0  0.675 0 0
+                    0  0  0 1 0"/>
+        </filter>
+      </defs>
+    </svg>
+  );
 }
