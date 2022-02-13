@@ -297,8 +297,6 @@ function drawImageWithData(ctx, image, centerX, centerY, layer, dropShadow = fal
   let x = centerX - width / 2 + offsetX;
   let y = centerY - height / 2 + offsetY;
 
-  console.log(layer.filter);
-
   // Save current context state
   ctx.save();
 
