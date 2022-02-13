@@ -13,6 +13,8 @@ const textures = {};
 let drawing = false;
 let layerId = 0;
 
+const isWebkit = navigator.userAgent.indexOf('AppleWebKit') !== -1;
+
 export default function App() {
 
   let savedLang = localStorage.getItem('pageLanguage');
@@ -60,6 +62,7 @@ export default function App() {
           reorderLayer={reorderLayer}
           drawDialogueScreen={drawDialogueScreen}
           pageLang={pageLang}
+          isWebkit={isWebkit}
         />
         <SettingsPanel
           settings={settings}

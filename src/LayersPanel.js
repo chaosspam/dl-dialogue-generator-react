@@ -10,7 +10,7 @@ import { SortableContext, useSortable, rectSortingStrategy } from '@dnd-kit/sort
 import { restrictToWindowEdges, snapCenterToCursor } from '@dnd-kit/modifiers';
 import i18n from './data/i18n.json';
 
-export default function LayersPanel({ layers, drawDialogueScreen, addLayer, removeLayer, updateLayer, reorderLayer, pageLang }) {
+export default function LayersPanel({ layers, drawDialogueScreen, addLayer, removeLayer, updateLayer, reorderLayer, pageLang, isWebkit }) {
   const [activeTabId, setActiveTab] = useState(0);
   const [portraitPanelActive, setPortraitPanelActive] = useState(false);
   const [backgroundPanelActive, setBackgroundPanelActive] = useState(false);
@@ -66,6 +66,7 @@ export default function LayersPanel({ layers, drawDialogueScreen, addLayer, remo
       backgroundPanelActive={backgroundPanelActive}
       updateLayer={updateLayer}
       loc={loc}
+      isWebkit={isWebkit}
     />;
   });
 
@@ -153,7 +154,7 @@ function LayerTabPane(props) {
   const {
     loc, layer, updateLayer, portraitPanelActive, backgroundPanelActive,
     togglePortraitPanel, toggleBackgroundPanel, openPrompt, drawDialogueScreen,
-    active
+    active, isWebkit
   } = props;
   return (
     <div className={`tab ${active ? 'active' : ''}`}>
@@ -202,9 +203,7 @@ function LayerTabPane(props) {
           defaultChecked={layer.flipX}
           onChange={e => updateLayer(layer.id, { flipX: e.target.checked })}
         />
-        <div>
-          <FilterPanel loc={loc} layer={layer} updateLayer={updateLayer}/>
-        </div>
+        {!isWebkit && <FilterPanel loc={loc} layer={layer} updateLayer={updateLayer}/>}
       </div>
     </div>
   );
