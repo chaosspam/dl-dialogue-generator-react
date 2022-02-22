@@ -1,28 +1,8 @@
 {
   "en": {
-    "code" : "en_us",
+    "code" : "en",
     "bcp47" : "en",
-    "textProperties": {
-      "bookYPos": 450,
-      "captionSize": 41,
-      "captionYPos": 500,
-      "dialogueSize": 32,
-      "dialogueXPos": 75,
-      "dialogueYPos": 930,
-      "introNameSize": 75,
-      "introNameYPos": 893,
-      "introTitleSize": 42,
-      "introTitleYPos": 700,
-      "introXPos": 20,
-      "lineHeight": 52,
-      "nameSize": 30,
-      "narrationLineHeight": 70,
-      "narrationYPos": 450,
-      "speakerXPos": 45,
-      "speakerYPos": 820,
-      "titleSize": 58,
-      "titleYPos": 405
-    },
+    "nativeName": "English",
     "loc": {
       "title": "Dragalia Lost Dialogue Screen Generator",
       "auto": "Fit Canvas",
@@ -32,7 +12,7 @@
       "cancel": "Cancel",
       "layers" : {
         "default": {
-          "defaultPortraitSrc": "images/adPortrait.png",
+          "src": "images/adPortrait.png",
           "background": "Background",
           "portrait": "Portrait"
         },
@@ -133,27 +113,7 @@
   "zh_tw": {
     "code" : "zh_tw",
     "bcp47" : "zh-Hant-TW",
-    "textProperties": {
-      "bookYPos": 450,
-      "captionSize": 41,
-      "captionYPos": 500,
-      "dialogueSize": "900 32",
-      "dialogueXPos": 75,
-      "dialogueYPos": 930,
-      "introNameSize": 75,
-      "introNameYPos": 893,
-      "introTitleSize": 42,
-      "introTitleYPos": 700,
-      "introXPos": 20,
-      "lineHeight": 70,
-      "nameSize": 32,
-      "narrationLineHeight": 70,
-      "narrationYPos": 450,
-      "speakerXPos": 45,
-      "speakerYPos": 820,
-      "titleSize": 58,
-      "titleYPos": 405
-    },
+    "nativeName": "繁體中文",
     "loc": {
       "title": "龍絆對話畫面生成器",
       "auto": "符合畫面",
@@ -163,7 +123,7 @@
       "cancel": "取消",
       "layers" : {
         "default": {
-          "defaultPortraitSrc": "images/adPortrait.png",
+          "src": "images/adPortrait.png",
           "background": "背景圖",
           "portrait": "美術圖"
         },
@@ -264,27 +224,7 @@
   "zh_cn": {
     "code" : "zh_cn",
     "bcp47" : "zh-Hans-CN",
-    "textProperties": {
-      "bookYPos": 450,
-      "captionSize": 41,
-      "captionYPos": 500,
-      "dialogueSize": "500 32",
-      "dialogueXPos": 73,
-      "dialogueYPos": 940,
-      "introNameSize": 75,
-      "introNameYPos": 893,
-      "introTitleSize": 42,
-      "introTitleYPos": 700,
-      "introXPos": 20,
-      "lineHeight": 70,
-      "nameSize": 29,
-      "narrationLineHeight": 70,
-      "narrationYPos": 450,
-      "speakerXPos": 45,
-      "speakerYPos": 822,
-      "titleSize": 58,
-      "titleYPos": 405
-    },
+    "nativeName": "简体中文",
     "loc": {
       "title": "龙约对话画面生成器",
       "auto": "符合画面",
@@ -294,7 +234,7 @@
       "cancel": "取消",
       "layers" : {
         "default": {
-          "defaultPortraitSrc": "images/adPortrait.png",
+          "src": "images/adPortrait.png",
           "background": "背景图",
           "portrait": "美术图"
         },
@@ -393,29 +333,9 @@
     }
   },
   "ja": {
-    "code" : "jp",
+    "code" : "ja",
     "bcp47" : "ja-JP",
-    "textProperties": {
-      "bookYPos": 450,
-      "captionSize": 41,
-      "captionYPos": 500,
-      "dialogueSize": 32,
-      "dialogueXPos": 75,
-      "dialogueYPos": 945,
-      "introNameSize": 75,
-      "introNameYPos": 893,
-      "introTitleSize": 42,
-      "introTitleYPos": 700,
-      "introXPos": 20,
-      "lineHeight": 52,
-      "nameSize": 32,
-      "narrationLineHeight": 70,
-      "narrationYPos": 450,
-      "speakerXPos": 45,
-      "speakerYPos": 825,
-      "titleSize": 58,
-      "titleYPos": 405
-    },
+    "nativeName": "日本語",
     "loc": {
       "title": "ドラガリストーリー画面メーカー",
       "auto": "画面に合う",
@@ -425,7 +345,7 @@
       "cancel": "キャンセル",
       "layers" : {
         "default": {
-          "defaultPortraitSrc": "images/adPortrait.png",
+          "src": "images/adPortrait.png",
           "background": "背景",
           "portrait": "イラスト"
         },
