@@ -20,8 +20,9 @@
   border: none;
   border-radius: 5px 5px 0 0;
   background-color: rgb(27, 79, 121);
-  font-family: "Lato", "Helvetica Neue", Helvetica, Arial, "PingFang TC", "黑體-繁", "Heiti TC",
-    "蘋果儷中黑", "Apple LiGothic Medium", "微軟正黑體", "Microsoft JhengHei", sans-serif;
+  font-family: "Lato", "Helvetica Neue", Helvetica, Arial, "PingFang TC",
+    "黑體-繁", "Heiti TC", "蘋果儷中黑", "Apple LiGothic Medium", "微軟正黑體",
+    "Microsoft JhengHei", sans-serif;
   color: white;
   text-decoration: none;
   cursor: pointer;
@@ -80,6 +81,11 @@
 
 .tab > div {
   margin: 0 1em;
+}
+
+.layer-panel__img-container {
+  max-width: 250px;
+  max-height: 250px;
 }
 
 @media (max-width: 768px) {

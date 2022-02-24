@@ -1,0 +1,204 @@
+@use "../styles/variables" as var;
+@import "../styles/global";
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  padding: 30px 60px;
+  margin: 10px;
+  border: 2px solid var.$dark;
+
+  background: var.$light;
+  color: var.$dark;
+
+  font-family: var.$content-font-family;
+
+  overflow-x: hidden;
+}
+
+.fixed-btn {
+  display: none;
+
+  position: fixed;
+
+  width: 40px;
+  height: 40px;
+
+  padding: 0;
+
+  background: var.$dark;
+  color: var.$light;
+
+  border: none;
+  border-radius: 50%;
+
+  text-decoration: none;
+
+  align-items: center;
+  justify-content: center;
+
+  font-size: 20px;
+
+  &--top {
+    @extend .fixed-btn;
+    right: 20px;
+    bottom: 15px;
+  }
+
+  &--pin {
+    @extend .fixed-btn;
+    left: 20px;
+    bottom: 15px;
+  }
+}
+
+.title {
+  text-transform: uppercase;
+  font-family: var.$title-font-family;
+}
+
+.preview-canvas {
+  position: fixed;
+  z-index: 99;
+  border: 2px solid var.$dark;
+  width: 250px;
+  height: 445px;
+}
+
+.dummy {
+  display: none;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+
+  margin-bottom: 30px;
+  margin-right: 10px;
+
+  &__title {
+    @extend .title;
+    margin: 0;
+    font-size: 1.75rem;
+    animation: fade-in-left 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275) 0s both;
+  }
+
+  &__subtitle {
+    @extend .title;
+    margin: 0;
+    font-size: 1rem;
+    animation: fade-in-left 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275) 0.3s
+      both;
+  }
+
+  &__brand {
+    width: 40px;
+    height: auto;
+    margin-right: 10px;
+    transform-origin: bottom right;
+    animation: spin-out 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275) both;
+  }
+}
+
+.edit-section {
+  margin-left: 275px;
+  display: flex;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
+}
+
+.hidden {
+  display: none !important;
+}
+
+canvas {
+  background-image: url("/images/loading.gif");
+  background-position: right bottom;
+  background-repeat: no-repeat;
+  background-size: 25%;
+  background-color: black;
+  margin: 15px 0;
+}
+
+@keyframes spin-out {
+  from {
+    opacity: 0;
+    transform: rotateZ(45deg) scale(0);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@keyframes fade-in-left {
+  from {
+    opacity: 0;
+    transform: translateX(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@media (max-width: 768px) {
+  .preview-canvas {
+    position: initial;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 50px;
+  }
+
+  .preview-canvas.pinned {
+    position: fixed;
+    top: 10px;
+    left: 10px;
+    width: 125px;
+    height: 222px;
+  }
+
+  .dummy {
+    width: 250px;
+    height: 445px;
+
+    border: 2px dashed var.$dark;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 50px;
+  }
+
+  .edit-section {
+    margin-left: 0;
+  }
+
+  .header {
+    justify-content: center;
+    margin: 10px 0 20px 0;
+
+    &__title {
+      font-size: 1.5rem;
+    }
+
+    &__subtitle {
+      font-size: 0.75rem;
+    }
+  }
+
+  body {
+    padding: 10px;
+  }
+
+  .fixed-btn--top,
+  .fixed-btn--pin {
+    display: flex;
+  }
+
+  input[type="radio"] ~ label {
+    margin-right: 10px;
+  }
+}

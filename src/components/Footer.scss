@@ -1,0 +1,25 @@
+@use "../styles/variables" as var;
+
+.footer {
+  text-align: center;
+
+  &__disclaimer {
+    margin: 5px 0;
+    font-size: 12px;
+  }
+
+  &__other-info {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    svg {
+      color: var.$dark;
+      font-size: 1.5rem;
+
+      &:hover {
+        color: var.$danger;
+      }
+    }
+  }
+}

@@ -1,18 +1,19 @@
 {
   "en": {
-    "code" : "en",
-    "bcp47" : "en",
+    "code": "en",
+    "bcp47": "en",
     "nativeName": "English",
     "loc": {
       "title": "Dragalia Lost Dialogue Screen Generator",
+      "headtitle": "Dragalia Lost",
+      "subtitle": "Dialogue Screen Generator",
       "auto": "Fit Canvas",
       "noDeleteBaseLayer": "Base layer cannot be removed!",
       "deleteLayerConfirm": "Are you sure you want to delete this layer?",
       "delete": "Delete",
       "cancel": "Cancel",
-      "layers" : {
+      "layers": {
         "default": {
-          "src": "images/adPortrait.png",
           "background": "Background",
           "portrait": "Portrait"
         },
@@ -111,19 +112,20 @@
     }
   },
   "zh_tw": {
-    "code" : "zh_tw",
-    "bcp47" : "zh-Hant-TW",
+    "code": "zh_tw",
+    "bcp47": "zh-Hant-TW",
     "nativeName": "繁體中文",
     "loc": {
-      "title": "龍絆對話畫面生成器",
+      "title": "失落的龍絆對話畫面生成器",
+      "headtitle": "失落的龍絆",
+      "subtitle": "對話畫面生成器",
       "auto": "符合畫面",
       "noDeleteBaseLayer": "無法刪除基底圖層!",
       "deleteLayerConfirm": "確定刪除此圖層?",
       "delete": "删除",
       "cancel": "取消",
-      "layers" : {
+      "layers": {
         "default": {
-          "src": "images/adPortrait.png",
           "background": "背景圖",
           "portrait": "美術圖"
         },
@@ -222,19 +224,20 @@
     }
   },
   "zh_cn": {
-    "code" : "zh_cn",
-    "bcp47" : "zh-Hans-CN",
+    "code": "zh_cn",
+    "bcp47": "zh-Hans-CN",
     "nativeName": "简体中文",
     "loc": {
-      "title": "龙约对话画面生成器",
+      "title": "失落的龙约对话画面生成器",
+      "headtitle": "失落的龙约",
+      "subtitle": "对话画面生成器",
       "auto": "符合画面",
       "noDeleteBaseLayer": "无法删除基底图层!",
       "deleteLayerConfirm": "确定删除此图层?",
       "delete": "删除",
       "cancel": "取消",
-      "layers" : {
+      "layers": {
         "default": {
-          "src": "images/adPortrait.png",
           "background": "背景图",
           "portrait": "美术图"
         },
@@ -333,19 +336,20 @@
     }
   },
   "ja": {
-    "code" : "ja",
-    "bcp47" : "ja-JP",
+    "code": "ja",
+    "bcp47": "ja-JP",
     "nativeName": "日本語",
     "loc": {
-      "title": "ドラガリストーリー画面メーカー",
+      "title": "ドラガリアロストストーリー画面メーカー",
+      "headtitle": "ドラガリアロスト",
+      "subtitle": "ストーリー画面メーカー",
       "auto": "画面に合う",
       "noDeleteBaseLayer": "ベースレイヤーは削除できません!",
       "deleteLayerConfirm": "レイヤーを削除しますか?",
       "delete": "削除する",
       "cancel": "キャンセル",
-      "layers" : {
+      "layers": {
         "default": {
-          "src": "images/adPortrait.png",
           "background": "背景",
           "portrait": "イラスト"
         },

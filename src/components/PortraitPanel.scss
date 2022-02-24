@@ -1,32 +1,39 @@
 /* Portrait Picker */
-#portraitPanel, #backgroundPanel {
+#portraitPanel,
+#backgroundPanel {
   background-color: #1a8c6a;
   color: white;
 }
 
-#portraitPanel, #backgroundPanel {
+#portraitPanel,
+#backgroundPanel {
   background-color: #d7d7d7;
   color: #434343;
 }
 
-#portraitPanel, #backgroundPanel {
+#portraitPanel,
+#backgroundPanel {
   padding: 20px;
   border-radius: 0 0 5px 5px;
 }
 
-#portraitPanel hr, #backgroundPanel hr {
+#portraitPanel hr,
+#backgroundPanel hr {
   border: 1px solid #434343;
 }
 
-#portraitPanel a, #backgroundPanel a {
+#portraitPanel a,
+#backgroundPanel a {
   color: #558df9;
 }
 
-#portraitPanel a:hover, #backgroundPanel a:hover {
+#portraitPanel a:hover,
+#backgroundPanel a:hover {
   color: #6e9dfa;
 }
 
-#backgroundPanel img, #portraitPanel img {
+#backgroundPanel img,
+#portraitPanel img {
   width: 75px;
   height: 75px;
   margin: 2px;
@@ -38,7 +45,8 @@
   color: transparent;
 }
 
-#backgroundPanel img:hover, #portraitPanel img:hover {
+#backgroundPanel img:hover,
+#portraitPanel img:hover {
   border: 3px solid rgb(118, 89, 245);
 }
 
