@@ -33,11 +33,11 @@ const SettingsPanel: FunctionComponent<SettingPanelProps> = ({
     updateSettings({ dialogueText: wrapped });
   }
 
-  function updateDialogueType(e: React.ChangeEvent<HTMLInputElement>) {
+  function updateDialogueType(e: React.ChangeEvent<HTMLSelectElement>) {
     updateSettings({ dialogueType: e.currentTarget.value });
   }
 
-  function updateFont(e: React.ChangeEvent<HTMLInputElement>) {
+  function updateFont(e: React.ChangeEvent<HTMLSelectElement>) {
     updateSettings({ font: e.currentTarget.value });
   }
 
@@ -77,102 +77,28 @@ const SettingsPanel: FunctionComponent<SettingPanelProps> = ({
 
       <div>
         <label>{loc.dialogueType}</label>
-        <input
-          type="radio"
-          name="stdialogue"
-          value={DialogueType.Dialogue}
-          id="std-dialogue"
-          checked={settings.dialogueType === DialogueType.Dialogue}
-          onChange={updateDialogueType}
-        />
-        <label htmlFor="std-dialogue">{loc.stdialogue_dialogue}</label>
-        <input
-          type="radio"
-          name="stdialogue"
-          value={DialogueType.Intro}
-          id="std-intro"
-          checked={settings.dialogueType === DialogueType.Intro}
-          onChange={updateDialogueType}
-        />
-        <label htmlFor="std-intro">{loc.stdialogue_intro}</label>
-        <input
-          type="radio"
-          name="stdialogue"
-          value={DialogueType.Caption}
-          id="std-caption"
-          checked={settings.dialogueType === DialogueType.Caption}
-          onChange={updateDialogueType}
-        />
-        <label htmlFor="std-caption">{loc.stdialogue_caption}</label>
-        <br />
-        <input
-          type="radio"
-          name="stdialogue"
-          value={DialogueType.Full}
-          id="std-full"
-          checked={settings.dialogueType === DialogueType.Full}
-          onChange={updateDialogueType}
-        />
-        <label htmlFor="std-full">{loc.stdialogue_full}</label>
-        <input
-          type="radio"
-          name="stdialogue"
-          value={DialogueType.Narration}
-          id="std-narration"
-          checked={settings.dialogueType === DialogueType.Narration}
-          onChange={updateDialogueType}
-        />
-        <label htmlFor="std-narration">{loc.stdialogue_narration}</label>
-        <input
-          type="radio"
-          name="stdialogue"
-          value={DialogueType.Book}
-          id="std-book"
-          checked={settings.dialogueType === DialogueType.Book}
-          onChange={updateDialogueType}
-        />
-        <label htmlFor="std-book">{loc.stdialogue_book}</label>
+        <select value={settings.dialogueType} onChange={updateDialogueType}>
+          <option value={DialogueType.Dialogue}>
+            {loc.stdialogue_dialogue}
+          </option>
+          <option value={DialogueType.Intro}>{loc.stdialogue_intro}</option>
+          <option value={DialogueType.Caption}>{loc.stdialogue_caption}</option>
+          <option value={DialogueType.Full}>{loc.stdialogue_full}</option>
+          <option value={DialogueType.Narration}>
+            {loc.stdialogue_narration}
+          </option>
+          <option value={DialogueType.Book}>{loc.stdialogue_book}</option>
+        </select>
       </div>
 
       <div>
         <label>{loc.font}</label>
-        <input
-          type="radio"
-          id="en"
-          name="font"
-          value="en"
-          checked={settings.font === "en"}
-          onChange={updateFont}
-        />
-        <label htmlFor="en">{loc.font_en}</label>
-        <input
-          type="radio"
-          id="jp"
-          name="font"
-          value="ja"
-          checked={settings.font === "ja"}
-          onChange={updateFont}
-        />
-        <label htmlFor="jp">{loc.font_ja}</label>
-        <br />
-        <input
-          type="radio"
-          id="zh_tw"
-          name="font"
-          value="zh_tw"
-          checked={settings.font === "zh_tw"}
-          onChange={updateFont}
-        />
-        <label htmlFor="zh_tw">{loc.font_zh_tw}</label>
-        <input
-          type="radio"
-          id="zh_cn"
-          name="font"
-          value="zh_cn"
-          checked={settings.font === "zh_cn"}
-          onChange={updateFont}
-        />
-        <label htmlFor="zh_cn">{loc.font_zh_cn}</label>
+        <select value={settings.font} onChange={updateFont}>
+          <option value="en">{loc.font_en}</option>
+          <option value="ja">{loc.font_ja}</option>
+          <option value="zh_tw">{loc.font_zh_tw}</option>
+          <option value="zh_cn">{loc.font_zh_cn}</option>
+        </select>
       </div>
 
       <div>
