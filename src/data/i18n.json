@@ -50,7 +50,8 @@
           "invert": "Invert",
           "saturate": "Saturate",
           "sepia": "Sepia"
-        }
+        },
+        "volume": "Volume"
       },
       "portrait": {
         "title": "Character (Powered by ",
@@ -162,7 +163,8 @@
           "invert": "反相",
           "saturate": "飽和",
           "sepia": "懷舊"
-        }
+        },
+        "volume": "音量"
       },
       "portrait": {
         "title": "美術圖 (以 ",
@@ -274,7 +276,8 @@
           "invert": "反相",
           "saturate": "饱和",
           "sepia": "怀旧"
-        }
+        },
+        "volume": "音量"
       },
       "portrait": {
         "title": "美术图 (以 ",
@@ -386,7 +389,8 @@
           "invert": "色相反転",
           "saturate": "彩度",
           "sepia": "セピア"
-        }
+        },
+        "volume": "音量"
       },
       "portrait": {
         "title": "立ち絵 (",
