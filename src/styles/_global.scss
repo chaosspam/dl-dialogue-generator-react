@@ -29,25 +29,41 @@ input ~ label {
   cursor: pointer;
 }
 
+%focus-outline {
+  transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+
+  &:focus {
+    outline: 0;
+    border-color: #86b7fe;
+    box-shadow: 0 0 0 1px rgb(0, 78, 88),
+      0 0 0 0.25rem rgba(13, 237, 253, 0.647);
+  }
+}
+
 input[type="number"],
 input[type="text"],
 textarea,
 input[type="file"] {
+  @extend %focus-outline;
+
   display: block;
   width: 100%;
-  padding: 0.375rem;
-  font-size: 1rem;
-  line-height: 1.2;
-  font-family: var.$content-font-family;
-  color: #212529;
-  background-color: #fff;
-  background-clip: padding-box;
   border: 1px solid #ced4da;
   border-radius: 0;
+  padding: 0.375rem;
+
+  color: #212529;
+  font-size: 1rem;
+  font-family: var.$content-font-family;
+  line-height: 1.2;
+
+  background-color: #fff;
+  background-clip: padding-box;
+
   -webkit-appearance: none;
   -moz-appearance: none;
   appearance: none;
-  transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+
   box-sizing: border-box;
 }
 
@@ -104,16 +120,6 @@ input[type="number"] {
   width: 4em;
   padding: 0.25rem;
   margin-right: 0.5rem;
-}
-
-input[type="number"]:focus,
-input[type="text"]:focus,
-textarea:focus,
-select:focus,
-.button:focus {
-  border-color: #86b7fe;
-  outline: 0;
-  box-shadow: 0 0 0 1px rgb(0, 78, 88), 0 0 0 0.25rem rgba(13, 237, 253, 0.647);
 }
 
 input[type="file"]::file-selector-button {
@@ -179,17 +185,23 @@ select {
   padding-bottom: 0.25rem;
   padding-left: 0.5rem;
   -moz-padding-start: calc(0.75rem - 3px);
-  font-size: 0.875rem;
+
+  font-family: var.$content-font-family;
+  font-size: 0.9rem;
   font-weight: 400;
   line-height: 1.2;
+
   color: #212529;
+
   background-color: #fff;
   background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3e%3cpath fill='none' stroke='%23343a40' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M2 5l6 6 6-6'/%3e%3c/svg%3e");
   background-repeat: no-repeat;
   background-position: right 0.75rem center;
   background-size: 16px 12px;
+
   border: 1px solid #ced4da;
   transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+
   -webkit-appearance: none;
   -moz-appearance: none;
   appearance: none;
@@ -218,9 +230,7 @@ textarea {
   text-decoration: none;
   border: none;
   cursor: pointer;
-  font-family: "Lato", "Helvetica Neue", Helvetica, Arial, "PingFang TC",
-    "黑體-繁", "Heiti TC", "蘋果儷中黑", "Apple LiGothic Medium", "微軟正黑體",
-    "Microsoft JhengHei", sans-serif;
+  font-family: var.$content-font-family;
 }
 
 .button:hover {
