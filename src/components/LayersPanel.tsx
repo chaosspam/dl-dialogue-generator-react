@@ -4,7 +4,7 @@ import BackgroundPanel from "./BackgroundPanel";
 import LayerDeletePrompt from "./LayerDeletePrompt";
 import SliderGroup from "./SliderGroup";
 import FilterPanel from "./FilterPanel";
-//import VolumeSlider from "./VolumeSlider";
+// import VolumeSlider from "./VolumeSlider";
 
 import usePrevious from "../hooks/usePrevious";
 

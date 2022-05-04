@@ -17,7 +17,7 @@ const VolumeSlider: FunctionComponent = () => {
 
   const startPlaying = () => {
     if (!audioSource || !audioSource.current) {
-      audioSource.current = new Audio("ngn.wav");
+      audioSource.current = new Audio("ngn.mp3");
       audioSource.current.loop = true;
     }
     audioSource.current.play();

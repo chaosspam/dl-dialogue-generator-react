@@ -47,6 +47,18 @@ async function drawDialogueScreen(
     // Clear the canvas
     ctx.clearRect(0, 0, canvas.width, canvas.height);
 
+    // Draw special background for intro and book type
+    switch (dialogueType) {
+      case DialogueType.Intro:
+        const introBack = await loadTexture("introBack");
+        if (introBack !== null) ctx.drawImage(introBack, 0, 0);
+        break;
+      case DialogueType.Book:
+        const book = await loadTexture("book");
+        if (book !== null) ctx.drawImage(book, 0, 0);
+        break;
+    }
+
     // Draw Layers
     if (layers) {
       for (let i = 0; i < layers.length; i++) {
@@ -71,29 +83,27 @@ async function drawDialogueScreen(
 
     await drawEmotion(settings, ctx);
 
-    let bar = await loadTexture("bar");
+    let overlay = await loadTexture("bar");
+
+    // Handle special overlay types
 
     switch (dialogueType) {
       case DialogueType.Intro:
-        bar = await loadTexture("introBar");
-        const introBack = await loadTexture("introBack");
-        if (introBack !== null) ctx.drawImage(introBack, 0, 0);
+        overlay = await loadTexture("introBar");
         break;
       case DialogueType.Full:
-        bar = await loadTexture("fullscreen");
+        overlay = await loadTexture("fullscreen");
         break;
       case DialogueType.Book:
-        const book = await loadTexture("book");
-        if (book !== null) ctx.drawImage(book, 0, 0);
-        bar = await loadTexture("skip_" + lang);
+        overlay = await loadTexture("skip_" + lang);
         break;
       case DialogueType.Caption:
       case DialogueType.Narration:
-        bar = await loadTexture("caption");
+        overlay = await loadTexture("caption");
         break;
     }
 
-    if (bar) ctx.drawImage(bar, 0, 0);
+    if (overlay) ctx.drawImage(overlay, 0, 0);
 
     // If language is not English, we draw the skip button in other language
     if (lang !== "en") {
