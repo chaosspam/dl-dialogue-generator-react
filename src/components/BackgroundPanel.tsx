@@ -52,6 +52,9 @@ const BackgroundPanel: FunctionComponent<LayerModifyProps> = ({
         </a>
         )
       </h3>
+      <h3>
+        <a href="tagger.html">Help me tag background images!</a>
+      </h3>
       <div>
         <label>{loc.full}</label>
         <hr />

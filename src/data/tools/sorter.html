@@ -28,7 +28,7 @@
         }
 
         async function loadData() {
-          let response = await fetch("background_data.json");
+          let response = await fetch("../background_data.json");
           data = await response.json();
           document.getElementById("next").addEventListener("click", sort);
           sort();
