@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/static/css/main.798a3791.css",
-    "main.js": "/static/js/main.af08d43f.js",
+    "main.css": "/static/css/main.92ada5e9.css",
+    "main.js": "/static/js/main.b1e140cf.js",
     "static/js/787.77352952.chunk.js": "/static/js/787.77352952.chunk.js",
     "static/media/dragalialostzh_tw.ttf": "/static/media/dragalialostzh_tw.8e9f2f808a647c97d93d.ttf",
     "static/media/dragalialostjp.otf": "/static/media/dragalialostjp.e5c30988d9aba995197a.otf",
@@ -9,12 +9,12 @@
     "static/media/loading.gif": "/static/media/loading.5616d7c09fc542b75767.gif",
     "static/media/dragalialosten.ttf": "/static/media/dragalialosten.a5b0593ad20a8342c70f.ttf",
     "index.html": "/index.html",
-    "main.798a3791.css.map": "/static/css/main.798a3791.css.map",
-    "main.af08d43f.js.map": "/static/js/main.af08d43f.js.map",
+    "main.92ada5e9.css.map": "/static/css/main.92ada5e9.css.map",
+    "main.b1e140cf.js.map": "/static/js/main.b1e140cf.js.map",
     "787.77352952.chunk.js.map": "/static/js/787.77352952.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.798a3791.css",
-    "static/js/main.af08d43f.js"
+    "static/css/main.92ada5e9.css",
+    "static/js/main.b1e140cf.js"
   ]
 }
