@@ -4,7 +4,7 @@ import { Carousel, CarouselItem } from "./Carousel";
 import { LayerModifyProps } from "./LayersPanel";
 import backgroundData from "../data/background_data.json";
 
-const THUMB_URL = "https://dragalialost.wiki/thumb.php?width=75&f=";
+const THUMB_URL = "images/background_images/downsized/";
 const CAROUSEL_SIZE = 12;
 
 interface BackgroundItem {
@@ -59,15 +59,18 @@ const BackgroundPanel: FunctionComponent<LayerModifyProps> = ({
         <label>{loc.full}</label>
         <hr />
         <Carousel items={backgroundItems} carouselSize={CAROUSEL_SIZE} />
-        <label>{loc.skybox}</label>
-        <hr />
-        <Carousel items={skyboxItems} carouselSize={CAROUSEL_SIZE} />
-        <label>{loc.cloud}</label>
-        <hr />
-        <Carousel items={cloudItems} carouselSize={CAROUSEL_SIZE} />
-        <label>{loc.overlay}</label>
-        <hr />
-        <Carousel items={overlayItems} carouselSize={CAROUSEL_SIZE} />
+        <details>
+          <summary>{loc.skybox}<hr /></summary>
+          <Carousel items={skyboxItems} carouselSize={CAROUSEL_SIZE} />
+        </details>
+        <details>
+          <summary>{loc.cloud}<hr /></summary>
+          <Carousel items={cloudItems} carouselSize={CAROUSEL_SIZE} />
+        </details>
+        <details>
+          <summary>{loc.overlay}<hr /></summary>
+          <Carousel items={overlayItems} carouselSize={CAROUSEL_SIZE} />
+        </details>
       </div>
     </div>
   );
@@ -87,7 +90,7 @@ function getBackgroundItems(
     return (
       <CarouselItem
         key={image.fileName}
-        src={THUMB_URL + image.fileName}
+        src={`${THUMB_URL}${image.fileName}.webp`}
         alt={image.fileName}
         onClick={onClick}
       />

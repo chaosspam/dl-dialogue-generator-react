@@ -14,6 +14,11 @@ label {
   }
 }
 
+summary {
+  margin: 7px 0;
+  cursor: pointer;
+}
+
 .input-group {
   display: flex;
   align-items: center;
