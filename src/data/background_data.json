@@ -1,6 +1,14 @@
 {
   "background": [
     {
+      "url": "images/background_images/Sty_bg_0130_100_00.png",
+      "fileName": "Sty_bg_0130_100_00"
+    },
+    {
+      "url": "images/background_images/Sty_bg_0125_100_00.png",
+      "fileName": "Sty_bg_0125_100_00"
+    },
+    {
       "url": "images/background_images/Sty_bg_0147_100_00.png",
       "fileName": "Sty_bg_0147_100_00"
     },
